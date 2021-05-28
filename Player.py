@@ -39,11 +39,9 @@ def cLibre(emp):
     elif enumCase == Case.DOOR.value:
 
         if poser_question(emp):
-            print("AVANER")
             return True
 
         else:
-            print("NON")
             return False
 
     elif enumCase == Case.OBJECT.value:
@@ -113,13 +111,13 @@ def poser_question(case):
         MAP[case[0]][case[1]] = 0
 
         annonce.clear()
-        annonce.write("La porte s'ouvre", font=("Verdana", 12, "bold"))
+        annonce.write("Ouverture de la porte !", font=("Verdana", 12, "bold"))
 
         return True
 
     else:
         annonce.clear()
-        annonce.write("Réponse incorrecte !", font=("Verdana", 12, "bold"))
+        annonce.write("Et non...", font=("Verdana", 12, "bold"))
 
         return False
 
