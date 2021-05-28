@@ -9,6 +9,7 @@ Entrée: Import des fichiers
 Résultat: Mise en fonction du jeu
 """
 
+import pytest
 from createWorld import *
 from playerMovement import deplacer_bas
 from playerMovement import deplacer_droite
