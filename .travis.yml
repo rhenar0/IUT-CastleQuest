@@ -11,4 +11,4 @@ python:
   - "nightly"  # nightly build
 # command to run tests
 script:
-  - main
+  - pytest
