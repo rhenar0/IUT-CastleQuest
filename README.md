@@ -1,6 +1,6 @@
 # IUT-CastleQuest
 > 
-
+[![Build Status](https://travis-ci.com/rhenar0/IUT-CastleQuest.svg?branch=main)](https://travis-ci.com/rhenar0/IUT-CastleQuest)
 ## Utilisation
 
 Utiliser un IDE Python classique ce mettre dans la racine du répertoire et dans la console :
