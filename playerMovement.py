@@ -53,73 +53,48 @@ def deplacer(position, mouvement):
     else:
         return position
 
-
-def deplacer_droite():
-    """
-    Fonction de préparation de déplacement vers la droite
-    Exemple: deplacer_droite()
-    """
-
+def movement(move):
     global PLAYERPOS
 
-    onkeypress(None, "Right")
+    match move:
+        case "Right":
 
-    newPos = (PLAYERPOS[0], PLAYERPOS[1] + 1)
-    PLAYERPOS = deplacer(PLAYERPOS, newPos)
+            onkeypress(None, "Right")
 
-    if PLAYERPOS is not None:
-        onkeypress(deplacer_droite, "Right")
+            newPos = (PLAYERPOS[0], PLAYERPOS[1] + 1)
+            PLAYERPOS = deplacer(PLAYERPOS, newPos)
 
+            if PLAYERPOS is not None:
+                onkeypress(None, "Left")
+        case "Up":
 
-def deplacer_haut():
-    """
-    Fonction de préparation de déplacement vers le haut
-    Exemple: deplacer_haut()
-    """
+            onkeypress(None, "Up")
 
-    global PLAYERPOS
+            newPos = (PLAYERPOS[0] - 1, PLAYERPOS[1])
+            PLAYERPOS = deplacer(PLAYERPOS, newPos)
 
-    onkeypress(None, "Up")
+            if PLAYERPOS is not None:
+                onkeypress(None, "Left")
 
-    newPos = (PLAYERPOS[0] - 1, PLAYERPOS[1])
-    PLAYERPOS = deplacer(PLAYERPOS, newPos)
+        case "Down":
 
-    if PLAYERPOS is not None:
-        onkeypress(deplacer_haut, "Up")
+            onkeypress(None, "Down")
 
+            newPos = (PLAYERPOS[0] + 1, PLAYERPOS[1])
+            PLAYERPOS = deplacer(PLAYERPOS, newPos)
 
-def deplacer_bas():
-    """
-    Fonction de préparation de déplacement vers le bas
-    Exemple: deplacer_bas()
-    """
+            if PLAYERPOS is not None:
+                onkeypress(None, "Left")
 
-    global PLAYERPOS
+        case "Left":
 
-    onkeypress(None, "Down")
+            onkeypress(None, "Left")
 
-    newPos = (PLAYERPOS[0] + 1, PLAYERPOS[1])
-    PLAYERPOS = deplacer(PLAYERPOS, newPos)
+            newPos = (PLAYERPOS[0], PLAYERPOS[1] - 1)
+            PLAYERPOS = deplacer(PLAYERPOS, newPos)
 
-    if PLAYERPOS is not None:
-        onkeypress(deplacer_bas, "Down")
-
-
-def deplacer_gauche():
-    """
-    Fonction de préparation de déplacement vers la gauche
-    Exemple: deplacer_gauche()
-    """
-
-    global PLAYERPOS
-
-    onkeypress(None, "Left")
-
-    newPos = (PLAYERPOS[0], PLAYERPOS[1] - 1)
-    PLAYERPOS = deplacer(PLAYERPOS, newPos)
-
-    if PLAYERPOS is not None:
-        onkeypress(deplacer_gauche, "Left")
+            if PLAYERPOS is not None:
+                onkeypress(None, "Left")
 
 
 PLAYERPOS = POSITION_DEPART

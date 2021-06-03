@@ -28,28 +28,28 @@ def cLibre(emp):
     """
 
     enumCase = MAP[emp[0]][emp[1]]
-
-    if enumCase == Case.EMPTY.value:
-        return True
-
-    elif enumCase == Case.VICTORY.value:
-        END()
-        return True
-
-    elif enumCase == Case.DOOR.value:
-
-        if poser_question(emp):
+    match enumCase:
+        case Case.EMPTY.value:
             return True
 
-        else:
+        case Case.VICTORY.value:
+            END()
+            return True
+
+        case Case.DOOR.value:
+
+            if poser_question(emp):
+                return True
+
+            else:
+                return False
+
+        case Case.OBJECT.value:
+            ramasser_objet(emp)
+            return True
+
+        case _:
             return False
-
-    elif enumCase == Case.OBJECT.value:
-        ramasser_objet(emp)
-        return True
-
-    else:
-        return False
 
 
 def cEnd(emp):
@@ -60,12 +60,12 @@ def cEnd(emp):
     Exemple: cEnd((1, 22))
     Return: Boolean
     """
+    match MAP[emp[0]][emp[1]]:
+        case Case.VICTORY.value:
+            return True
 
-    if MAP[emp[0]][emp[1]] == Case.VICTORY.value:
-        return True
-
-    else:
-        return False
+        case _:
+            return False
 
 
 def ramasser_objet(emp):
@@ -101,7 +101,7 @@ def poser_question(case):
     """
 
     annonce.clear()
-    annonce.write("Cette porte est fermée.", font=("Verdana", 12, "bold"))
+    annonce.write("Cette porte est vérouillé.", font=("Verdana", 12, "bold"))
 
     reponse = textinput("Porte", questDic[case][0])
     listen()

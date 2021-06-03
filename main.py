@@ -10,18 +10,15 @@ Résultat: Mise en fonction du jeu
 """
 
 from createWorld import *
-from playerMovement import deplacer_bas
-from playerMovement import deplacer_droite
-from playerMovement import deplacer_haut
-from playerMovement import deplacer_gauche
+from playerMovement import movement
 
 if __name__ == "__main__":
     listen()
 
     # Exécution de la fonction si un évenement se produit (appuyer sur les touches directionnels)
-    onkeypress(deplacer_gauche, "Left") 
-    onkeypress(deplacer_droite, "Right")
-    onkeypress(deplacer_haut, "Up")
-    onkeypress(deplacer_bas, "Down")
+    onkeypress(movement("Left"), "Left")
+    onkeypress(movement("Right"), "Right")
+    onkeypress(movement("Up"), "Up")
+    onkeypress(movement("Down"), "Down")
 
     mainloop()
