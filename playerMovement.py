@@ -8,6 +8,7 @@ Définition des déplacements du joueur sur le labyrinthe.
 Entrée: Fonctions et variables
 Résultat: Mouvement du joueur
 """
+import sys
 
 from turtle import *
 from CONFIGS import *
@@ -33,7 +34,7 @@ def deplacer(position, mouvement):
         onkeypress(None, "Up")
         onkeypress(None, "Down")
 
-        quit()  # Fin de partie
+        sys.exit()  # Fin de partie
         return None
 
     if (cLibre(mouvement)) is True:
