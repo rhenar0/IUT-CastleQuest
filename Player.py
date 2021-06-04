@@ -40,12 +40,10 @@ def cLibre(emp):
 
         return bool(poser_question(emp))
 
-    elif enumCase == Case.OBJECT.value:
+    if enumCase == Case.OBJECT.value:
         ramasser_objet(emp)
         return True
-
-    else:
-        return False
+    return False
 
 
 def cEnd(emp):
