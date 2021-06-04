@@ -3,26 +3,30 @@ IUT-CastleQuest - Labyrinthe fait avec une turtle
 Auteur: Hugo CHASSAING
 Date: 01/05/2021
 
-Mise en marche du jeu
+Fichier de test des fonctions primaires à chaque push sur GitHub
 
-Entrée: Import des fichiers
-Résultat: Mise en fonction du jeu
+Entrée: None
+Résultat: None
 """
 
 import pytest
-from createWorld import *
-from playerMovement import deplacer_bas
-from playerMovement import deplacer_droite
-from playerMovement import deplacer_haut
-from playerMovement import deplacer_gauche
+
+from createWorld import calculer_pas
+from createWorld import coordonnes
+
+from parseFile import lire_matrice
+from parseFile import creer_dictionnaire
+
+from Player import cLibre
+from Player import cEnd
 
 if __name__ == "__main__":
-    listen()
-
-    # Exécution de la fonction si un évenement se produit (appuyer sur les touches directionnels)
-    onkeypress(deplacer_gauche, "Left") 
-    onkeypress(deplacer_droite, "Right")
-    onkeypress(deplacer_haut, "Up")
-    onkeypress(deplacer_bas, "Down")
-
-    mainloop()
+    
+    MAP = lire_matrice(fichier_plan)
+    PAS = calculer_pas(MAP)
+    
+    coordonnes((1, 22), PAS)
+    objDic = creer_dictionnaire(fichier_objets)
+    
+    cLibre((1, 22))
+    cEnd((1, 22))
