@@ -32,17 +32,15 @@ def cLibre(emp):
     if enumCase == Case.EMPTY.value:
         return True
 
-    elif enumCase == Case.VICTORY.value:
+    if enumCase == Case.VICTORY.value:
         END()
         return True
 
-    elif enumCase == Case.DOOR.value:
+    if enumCase == Case.DOOR.value:
 
         if poser_question(emp):
             return True
-
-        else:
-            return False
+        return False
 
     elif enumCase == Case.OBJECT.value:
         ramasser_objet(emp)
@@ -63,9 +61,7 @@ def cEnd(emp):
 
     if MAP[emp[0]][emp[1]] == Case.VICTORY.value:
         return True
-
-    else:
-        return False
+    return False
 
 
 def ramasser_objet(emp):
@@ -114,12 +110,10 @@ def poser_question(case):
         annonce.write("Ouverture de la porte !", font=("Verdana", 12, "bold"))
 
         return True
+    annonce.clear()
+    annonce.write("Et non...", font=("Verdana", 12, "bold"))
 
-    else:
-        annonce.clear()
-        annonce.write("Et non...", font=("Verdana", 12, "bold"))
-
-        return False
+    return False
 
 
 def END():
