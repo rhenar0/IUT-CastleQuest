@@ -38,11 +38,7 @@ def cLibre(emp):
 
     elif enumCase == Case.DOOR.value:
 
-        if poser_question(emp):
-            return True
-
-        else:
-            return False
+        return bool(poser_question(emp))
 
     elif enumCase == Case.OBJECT.value:
         ramasser_objet(emp)
@@ -61,11 +57,7 @@ def cEnd(emp):
     Return: Boolean
     """
 
-    if MAP[emp[0]][emp[1]] == Case.VICTORY.value:
-        return True
-
-    else:
-        return False
+    return MAP[emp[0]][emp[1]] == Case.VICTORY.value
 
 
 def ramasser_objet(emp):
