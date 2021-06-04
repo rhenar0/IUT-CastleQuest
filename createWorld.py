@@ -58,7 +58,7 @@ def tracer_carre(dimension):
 
     caseTurtle.begin_fill()
 
-    for i in range(4):
+    for _ in range(4):
         caseTurtle.forward(dimension)
         caseTurtle.left(90)
 
