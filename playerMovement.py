@@ -35,8 +35,8 @@ def deplacer(position, mouvement):
 
         quit()  # Fin de partie
         return None
-    
-    elif (cLibre(mouvement)) is True:
+
+    if (cLibre(mouvement)) is True:
         charPlayer.clear()
 
         coordPos = coordonnes(mouvement, PAS)
@@ -49,9 +49,7 @@ def deplacer(position, mouvement):
         update()
 
         return mouvement
-    
-    else:
-        return position
+    return position
 
 
 def deplacer_droite():
